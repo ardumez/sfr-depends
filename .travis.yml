@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get install -y expect
   - sudo expect ./create-context.expect
 script:
-  - docker compose up
+  - docker-compose up
 deploy:
   provider: script
   script: bash deploy.sh
