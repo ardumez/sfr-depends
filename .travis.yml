@@ -4,7 +4,7 @@ services:
   - docker
 before_install:
   - sudo apt-get install -y expect
-  - sudo bash ./create-context.expect
+  - sudo expect ./create-context.expect
   - docker context ls
 script:
   - echo "buid time"
