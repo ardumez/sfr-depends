@@ -2,6 +2,10 @@ sudo: required
 language: generic
 services:
   - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
 env:
   - DOCKER_COMPOSE_VERSION=1.4.2
 before_install:
@@ -9,7 +13,7 @@ before_install:
   - sudo apt-get install -y expect
   - sudo expect ./create-context.expect
 script:
-  - docker-compose up
+  - docker compose up
 deploy:
   provider: script
   script: bash deploy.sh
