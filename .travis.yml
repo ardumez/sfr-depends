@@ -10,8 +10,10 @@ env:
   - DOCKER_COMPOSE_VERSION=1.4.2
 before_install:
   - curl -L https://raw.githubusercontent.com/docker/compose-cli/main/scripts/install/install_linux.sh | sh
+  - docker --version
   - sudo apt-get install -y expect
   - sudo expect ./create-context.expect
+
 script:
   - docker compose up
 deploy:
