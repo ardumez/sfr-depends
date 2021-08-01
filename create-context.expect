@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+set timeout 360
+spawn  docker context create ecs test
+expect "AWS environment variables"
+send "\033\[B"
+send "\033\[B"
+send "\n"
+interact

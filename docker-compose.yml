@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: "postgres"
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "sfr-database"
+    volumes:
+      - sfr_volume_postgres:/var/lib/postgresql/data
+  postgres:
+    image: "postgres"
+    container_name: "postgres-keyloack"
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: "MyUser"
+      POSTGRES_PASSWORD: "Password!23"
+      POSTGRES_DB: "keyloack"
+    volumes: 
+      - sfr_volume_postgres_keyloack:/var/lib/postgresql/data
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - sfr_volume_mongodb:/data/db
+volumes:
+  sfr_volume_postgres:
+    name: "sfr-volume-postgres"
+    external: false
+  sfr_volume_postgres_keyloack:
+    name: "sfr-volume-postgres-keyloack"
+    external: false
+  sfr_volume_mongodb:
+    name: "sfr-volume-mongodb"
+    external: false
