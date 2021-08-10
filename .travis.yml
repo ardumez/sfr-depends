@@ -20,7 +20,7 @@ before_install:
   - docker-compose --version
   - docker --version
 script:
-  - docker context create ecs deploycontext --from-env
+  - docker context create ecs --from-env deploycontext
   - docker-compose up
 deploy:
   provider: script
