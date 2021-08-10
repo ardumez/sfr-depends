@@ -1,13 +1,5 @@
 sudo: required
 language: generic
-services:
-  - docker
-addons:
-  apt:
-    packages:
-      - docker-ce
-env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
 before_install:
   - sudo apt-get update
   - sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
